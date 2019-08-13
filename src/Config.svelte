@@ -19,6 +19,6 @@
 textarea { font-family: monospace; }
 </style>
 
-<textarea bind:value={config_value} cols="30" rows="10" />
+<textarea bind:value={config_value} cols="40" rows="10" />
 <br />
 <button on:click={saveConfig}>Save Config</button>

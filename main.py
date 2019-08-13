@@ -2,6 +2,8 @@ import os
 import webview
 import json
 from pathlib import Path
+from jinja2 import Template
+import json
 
 USER_HOME = str(Path.home())
 CONFIG_FILE = '.pywebview-svelte'
@@ -42,6 +44,16 @@ class Api():
     #     print('Toggled item %s' % item)
 
 if __name__ == '__main__':
+
+    initial_variables = { "hi": "there"}
+
+    with open('public/index.jinja2') as fh:
+        template = Template(fh.read())
+
+    with open('public/index.html', 'w') as fh:
+        fh.write(template.render(initial_variables=initial_variables))
+
+
     api = Api()
     webview.create_window('Sample', 'public/index.html', js_api=api, min_size=(600, 450), text_select=True)
     webview.start(debug=True)

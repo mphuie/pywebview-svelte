@@ -7,6 +7,8 @@
 
   import { config } from "./configFile.js";
 
+  console.log(window.initVariables);
+
   // pywebview is deferred, wait until it's defined before loading config
 
   (async () => {
